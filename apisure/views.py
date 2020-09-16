@@ -66,3 +66,4 @@ def post_project(request, **kwargs):
         projects = Project.objects.all().order_by('-id')
         serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data)
+
