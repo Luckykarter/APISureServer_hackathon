@@ -10,4 +10,5 @@ urlpatterns = [
     path('guarantee/test/', views.test_guarantee),
     path('guarantee/project/', views.post_project),
     path('guarantee/project', views.post_project),
+    path('guarantee/project/delete/<str:id>', views.delete_project),
 ]

@@ -1,0 +1,3 @@
+docker run -d --network net2 --name ui -p 8003:80 nginx_ui 
+
+docker run -d --network net2 --name apisureserver -p 8002:8002 apisureserver python manage.py runserver 0.0.0.0:8002 

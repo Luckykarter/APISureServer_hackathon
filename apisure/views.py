@@ -1,12 +1,10 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.views import status
 from APISureConnector.apisureconnector import APISureConnector
 from apisure.models import Guarantee, Project
 from .serializers import GuaranteeSerializer, ProjectSerializer
 from pprint import pp
-
-CONNECTOR = APISureConnector(client_id="gAtxkHbIAwDOHnSTajn0p0tN4V6Yhk1B",
-                             client_secret="80OdKmebSkWlpkGP")
 
 
 @api_view(["GET"])
@@ -25,6 +23,8 @@ def get_guarantee(request, **kwargs):
 def send_guarantee(request, **kwargs):
     url = 'https://api.apisure.io/mapi_base/v1/Guarantee/Guarantee/Apply'
 
+    CONNECTOR = APISureConnector(client_id="gAtxkHbIAwDOHnSTajn0p0tN4V6Yhk1B",
+                                 client_secret="80OdKmebSkWlpkGP")
     response = CONNECTOR.send_request(url=url, data=request.data)
     print(response)
     pp(response.json())
@@ -67,3 +67,12 @@ def post_project(request, **kwargs):
         serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data)
 
+@api_view(['DELETE'])
+def delete_project(request, **kwargs):
+
+    id = kwargs.get('id')
+    if id is not None:
+        Project.objects.filter(id=id).delete()
+        return Response(status=200)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
