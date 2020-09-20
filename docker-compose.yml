@@ -16,4 +16,4 @@ services:
     container_name: project-ui
     working_dir: /usr/share/nginx/html
     ports:
-      - 8003:80
+      - 80:80
