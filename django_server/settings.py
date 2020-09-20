@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "apisure.apps.APISureConfig",
     "corsheaders",
-    "django_server",
-    "apisure"
+    "django_server"
 ]
 
 MIDDLEWARE = [
