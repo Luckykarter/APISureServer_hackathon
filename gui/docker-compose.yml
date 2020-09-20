@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+#  apisureserver:
+#    build: .
+#    restart: always
+#    container_name: apisureserver
+#    ports:
+#      - 8002:8002
+#    working_dir: /code
+    
+
+  nginx_ui:
+    build: .
+    image: project-ui
+    container_name: project-ui
+    working_dir: /usr/share/nginx/html
+    ports:
+      - 80:80
