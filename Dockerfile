@@ -11,4 +11,4 @@ RUN python manage.py migrate
 ENV PORT 8080
 EXPOSE 8080
 #CMD ["python", "manage.py", "runserver", "0.0.0.0:8003"]
-CMD exec gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 8 --timeout 0 myproject.wsgi:application
+CMD exec gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 8 --timeout 0 django_server.wsgi:application
