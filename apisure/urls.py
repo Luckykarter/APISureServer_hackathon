@@ -11,4 +11,5 @@ urlpatterns = [
     path('guarantee/project/', views.post_project),
     path('guarantee/project', views.post_project),
     path('guarantee/project/delete/<str:id>', views.delete_project),
+    path('apitest/', views.test_connection)
 ]

@@ -8,3 +8,6 @@ COPY . /code/
 
 RUN python manage.py makemigrations apisure
 RUN python manage.py migrate
+
+EXPOSE 8003
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8003"]

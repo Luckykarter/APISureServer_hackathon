@@ -76,3 +76,7 @@ def delete_project(request, **kwargs):
         return Response(status=200)
     else:
         return Response(status=status.HTTP_404_NOT_FOUND)
+
+@api_view(['GET'])
+def test_connection(request, **kwargs):
+    return Response(data={'test': 'passed'}, status=200)
